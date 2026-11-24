@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "projects": [
+    {
+      "name": "sample-lib",
+      "repository": "zouariste/gh-graph-producer",
+      "branch": "main",
+      "workflow": "knowledge-graph.yml",
+      "artifact_prefix": "graphify-sample-lib-"
+    }
+  ]
+}

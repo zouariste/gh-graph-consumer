@@ -1,0 +1,5 @@
+.venv-graphify/
+graphify-out/
+.snapshots/
+.pr-snapshots/
+__pycache__/
