@@ -43,3 +43,20 @@ artifact prefix. Point it at a different producer and the rest just works.
 | `scripts/shared_graph.py` | fetch + validate + assemble |
 | `config/projects.json` | which producer(s) to pull from |
 | `.github/workflows/update-knowledge-graph.yml` | the assemble pipeline |
+| `scripts/graph-query` | query the published shared graph (fetch-if-stale) |
+
+## Query the graph
+
+Once the pipeline has published a `graphify-shared-baseline`, ask questions of it
+without downloading anything by hand. `scripts/graph-query` finds the latest
+successful run, downloads the artifact **only when it changed**, verifies the
+checksum, caches it, then queries:
+
+```bash
+scripts/graph-query "who defines greet"
+scripts/graph-query --explain "sample-lib::Greeter"
+scripts/graph-query --path "sample-lib::App" "sample-lib::Greeter"
+```
+
+Needs `gh auth login -h github.com` once and a graphify binary (set `GRAPHIFY_BIN`,
+or create `.venv-graphify` from `requirements-graphify.txt`, or `graphify` on PATH).
